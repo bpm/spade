@@ -1,4 +1,10 @@
-require 'spade/runtime/context'
+require 'spade/context'
+
+module Spade
+  def self.jspath
+    File.expand_path("../../../lib/spade.js", __FILE__)
+  end
+end
 
 RSpec::Matchers.define :be_ct_success do
   match do |actual|
@@ -22,7 +28,7 @@ module RSpecCoreTest
   def run_core_tests(path, &block)
     describe "#{path}" do
       rootdir = File.expand_path(File.join(__FILE__, '/../../../'));
-      context = Spade::Runtime::MainContext.new(:rootdir => rootdir) do |ctx|
+      context = Spade::MainContext.new(:rootdir => rootdir) do |ctx|
         ctx['checkRSpec'] = lambda do |status, test_info, message|
           it "#{test_info.module.name}: #{test_info.name}" do
             if status == 'warnings' && message == "Not Yet Implemented"

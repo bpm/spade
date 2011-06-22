@@ -1,15 +1,15 @@
 source 'http://rubygems.org'
 
+gem "rspec"
+
 if ENV["BPM_PATH"]
   gem 'bpm', :path => ENV["BPM_PATH"]
 else
-  gem 'bpm', :git => "git://github.com/strobecorp/spade-packager", :branch => 'bpm'
+  gem 'bpm', :git => "git://github.com/sproutcore/bpm"
 end
 
-if ENV["SPADERUN_PATH"]
-  gem 'spade-runtime', :path => ENV["SPADERUN_PATH"]
+if ENV["SPADE_PATH"]
+  gem 'spade', :path => ENV["SPADE_PATH"]
 else
-  gem 'spade-runtime', :git => "git://github.com/strobecorp/spade-runtime", :branch => 'compiler'
+  gem 'spade', :git => "git://github.com/sproutcore/spade-ruby"
 end
-
-gemspec
