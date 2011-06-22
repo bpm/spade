@@ -46,5 +46,5 @@ Ct.test('should set default directories', function(t){
   var spade = t.spade;
   spade.register('PKG', { name: 'PKG' });
 
-  t.deepEqual(spade.package('PKG').directories, { 'lib': 'lib' });
+  t.deepEqual(spade.package('PKG').directories, { 'lib': ['lib'] });
 });
