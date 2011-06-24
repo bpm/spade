@@ -1,0 +1,17 @@
+{
+  "name":         "spade",
+  "version":      "0.1.1",
+
+  "description":  "Dependency Management Library for JavaScript",
+  "author":       "Charles Jolley",
+  "homepage":     "http://github.com/sproutcore/spade",
+
+  "directories": {
+    "lib":        "./lib",
+    "tests":      "./tests"
+  },
+
+  "main": "./lib/spade",
+
+  "plugin:wrapper": "spade/wrapper"
+}
