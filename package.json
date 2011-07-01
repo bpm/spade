@@ -13,5 +13,5 @@
 
   "main": "./lib/spade",
 
-  "plugin:wrapper": "spade/wrapper"
+  "plugin:transport": "spade/transport"
 }
