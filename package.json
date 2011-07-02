@@ -14,5 +14,5 @@
 
   "main": "./lib/spade",
 
-  "plugin:transport": "spade/transport"
+  "plugin:transport": "spade/~transports/spade"
 }
