@@ -1,4 +1,4 @@
-exports.compileTransport = function(code, pkg, id, filename) {
+BPM_PLUGIN.compileTransport = function(code, pkg, id, filename) {
   var ret = '',
       id = pkg.name+'/'+id;
 
