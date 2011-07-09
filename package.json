@@ -9,7 +9,7 @@
 
   "directories": {
     "lib":        "./lib",
-    "tests":      "./spec/javascript"
+    "transports": "./transports"
   },
 
   "main": "./lib/spade",
