@@ -1,6 +1,6 @@
 {
   "name":         "spade",
-  "version":      "0.1.3",
+  "version":      "1.0.0",
 
   "description":  "Dependency Management Library for JavaScript",
   "summary":      "Dependency Management Library for JavaScript",
@@ -8,11 +8,13 @@
   "homepage":     "http://github.com/sproutcore/spade",
 
   "directories": {
-    "lib":        "./lib",
-    "transports": "./transports"
+    "lib": "lib",
+    "tests": "tests"
   },
 
-  "main": "./lib/spade",
-
-  "plugin:transport": "spade/~transports/spade"
+  "dependencies:development": {
+    "qunit": "~> 1.0.0"
+  },
+  
+  "bpm:transport": "spade/transport"
 }

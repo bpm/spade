@@ -3,31 +3,33 @@
 // Copyright: ©2010 Strobe Inc. All rights reserved.
 // License:   Licened under MIT license (see __preamble__.js)
 // ==========================================================================
+/*globals spade deepEqual */
 
-var Ct = require('core-test/sync'),
-    Spade = require('spade').Spade;
+(function() {
+  
+var t = {}, Spade = spade.Spade;
 
-Ct.module('spade: packages');
-
-Ct.setup(function(t) {
-  t.spade = new Spade(); 
+module('spade: packages', {
+  setup: function() {
+    t.spade = new Spade();
+  },
+  
+  teardown: function() {
+    delete t.spade;
+  }
 });
 
-Ct.teardown(function(t) { 
-  delete t.spade;
-});
-
-Ct.test('should find registered package', function(t) {
+test('should find registered package', function() {
   
   var spade = t.spade;
   spade.register('PKG', { name: 'PKG' });
   
-  t.equal(spade.package('PKG').name, 'PKG');
-  t.equal(spade.package('PKG/foo/bar').name, 'PKG');
+  equal(spade.package('PKG').name, 'PKG');
+  equal(spade.package('PKG/foo/bar').name, 'PKG');
   
 });
 
-Ct.test('should respect mappings', function(t) {
+test('should respect mappings', function() {
   
   var spade = t.spade;
   spade.register('PKG', { mappings: { foo: 'FOO' } });
@@ -38,13 +40,14 @@ Ct.test('should respect mappings', function(t) {
   
   spade.register('FOO/foo', function(r, e) { e.id = 'FOO'; });
   
-  t.equal(spade.require('PKG/bar').id, 'FOO'); // should remap pkg name
+  equal(spade.require('PKG/bar').id, 'FOO'); // should remap pkg name
   
 });
 
-Ct.test('should set default directories', function(t){
+test('should set default directories', function() {
   var spade = t.spade;
   spade.register('PKG', { name: 'PKG' });
-
-  t.deepEqual(spade.package('PKG').directories, { 'lib': ['lib'] });
+  deepEqual(spade.package('PKG').directories, { 'lib': ['lib'] });
 });
+
+})();
