@@ -1,10 +1,11 @@
-BPM_PLUGIN.compileTransport = function(code, pkg, id, filename) {
+BPM_PLUGIN.compileTransport = function(code, context, filename) {
   var ret = '',
-      id = pkg.name+'/'+id;
+      packageName = context['package'].name,
+      id = packageName+'/'+context.moduleId;
 
   // Register package, probably a better way to do this
   if (id.match(/^[^\/]+\/main$/)) {
-    ret += 'spade.register("'+pkg.name+'", '+JSON.stringify(pkg)+');\n\n';
+    ret += 'spade.register("'+packageName+'", '+JSON.stringify(context['package'])+');\n\n';
   }
 
   // TOOD: We can also pass a string here, maybe we should instead

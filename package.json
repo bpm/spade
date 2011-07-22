@@ -1,6 +1,6 @@
 {
   "name":         "spade",
-  "version":      "1.0.0",
+  "version":      "1.0.0.2",
 
   "description":  "Dependency Management Library for JavaScript",
   "summary":      "Dependency Management Library for JavaScript",
