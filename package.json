@@ -1,6 +1,6 @@
 {
   "name":         "spade",
-  "version":      "1.0.0.2",
+  "version":      "1.0.0.3",
 
   "description":  "Dependency Management Library for JavaScript",
   "summary":      "Dependency Management Library for JavaScript",
@@ -16,5 +16,10 @@
     "qunit": "~> 1.0.0"
   },
   
-  "bpm:transport": "spade/transport"
+  "bpm:provides": {
+    "transport": {
+      "main": "spade/transport"
+    }
+  }
+
 }
