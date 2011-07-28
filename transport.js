@@ -19,12 +19,7 @@ BPM_PLUGIN.compileTransport = function(code, context, filename) {
   if (context.settings['spade:format'] === 'function') {
     code = 'function(require, exports, __module, ARGV, ENV, __filename){\n'+code+'\n}';
   } else {
-    code = context.minify("(function(require, exports, __module, ARGV, ENV, __filename){\n"+code+"\n//@ sourceURL="+id+"\n})()");
-    
-    var lines = code.split("\n");
-    lines[0] = lines[0].replace(/^\(function\([^\)]+\)\{/, '');
-    lines[lines.length-1] = lines[lines.length-1].replace(/\}\)\(\)$/, '');
-    code = lines.join("\n");
+    code = context.minify("(function(require, exports, __module, ARGV, ENV, __filename){"+code+"\n});");
     code = JSON.stringify(code);
   }
 
